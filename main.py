@@ -34,16 +34,14 @@ while game_is_on:
 
     #Detect collision with wall
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() > 290 or snake.head.ycor() < -290:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
 
     #Detect collision with tall.
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
-
-    #
+            scoreboard.reset()
+            snake.reset()
 
 # segment_1 = Turtle(shape="square")
 # segment_1.color("white")
